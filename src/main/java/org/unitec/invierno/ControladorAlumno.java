@@ -49,7 +49,7 @@ public class ControladorAlumno {
        public Estatus guardar (@RequestBody String json)throws Exception{
                ObjectMapper maper=new ObjectMapper();
                Alumno a=maper.readValue(json,Alumno.class);
-               repoAlumno.save(a);
+               alumnRepo.save(a);
                Estatus e =new Estatus();
                e.setMensaje("Guardar con exito");
                e.setSucess(true);
