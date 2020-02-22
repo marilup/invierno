@@ -29,22 +29,7 @@ public class ControladorAlumno {
        return alumnRepo.findAll();
    }
        //El metodo para guardar un nuevo alumno
-       @PostMapping("/alumno")
-    Estatus guardarAlumno (@RequestBody String json)throws Exception{
-       
-       // Primero el cuerpo que llega lo desserializamos
-       ObjectMapper maper=new ObjectMapper();
-       //lo mapeamos
-       Alumno a=maper.readValue(json,Alumno.class);
-       //Ahora si lo guardamos
-       alumnRepo.save(a);
-       //Debemos informar el response al cliente que mas adelante sera android
-       Estatus e=new Estatus();
-       e.setMensaje("Alumno se guardo bieen");
-       e.setSucess(true);
-       return  e;
-    }
-
+ 
        @PostMapping("/alumno")
        public Estatus guardar (@RequestBody String json)throws Exception{
                ObjectMapper maper=new ObjectMapper();
